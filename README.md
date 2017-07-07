@@ -238,6 +238,7 @@
   * [8.13 JavaScript问题集锦 #2【难度比较大】](./interview/13.md)
   * [8.14 2014阿里前端笔试题：JavaScript篇](./interview/14.md)
   * [8.15 2014阿里前端笔试题：HTML/CSS篇](./interview/15.md)
+## 附录
 * [附录A: 书单](./appendix/books.md)
 * [附录B: 常用网站](./appendix/websites.md)
 * [附录C: 我的代码库](https://github.com/zhangguixu/code)

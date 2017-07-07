@@ -12,6 +12,8 @@
 
 链表分为单向链表和双向链表，其不同在于节点。
 
+> 链表的操作不难实现，最主要的是各种边界条件的考虑。
+
 ## 2. 链表的反转
 
 链表的反转分为两种情况：
@@ -161,14 +163,43 @@ class SingleLinkedList {
     } 
 
     // 反转
+    reverse () {
+        if (this.isEmpty()) return;
+        let cur = this.head,
+            pre = null,
+            next = null;
 
-    // 定义一个静态方法，不换行输出打印链表
+        while (cur.next != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        cur.next = pre;
+        this.head = cur;
+    }
+
+    // 快慢指针的运用:获取中间节点值
+    median () {
+        if (this.isEmpty()) return;
+        let fast = this.head; // 快指针
+        let slow = this.head; // 慢指针
+        while (fast.next != null) {
+            if (fast.next.next == null) break;
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+   
+    // 不换行输出打印链表
     static print (list) {
         let cur = list.head,
             out = " ";
         while(cur != null){
             out += "->" + cur.value;
-            cur = cur.next;
+            cur = cur.next;                           
         }
         console.log(out);
     }
@@ -198,12 +229,23 @@ list.insert(new Node(1), 1);
 list.insert(new Node(4), 4);
 list.insert(new Node(6), list.size() + 1);
 SingleLinkedList.print(list);
+
+// 反转
+list.reverse();
+SingleLinkedList.print(list);
+
+// 中间值
+list.reverse();
+SingleLinkedList.print(list);
+console.log(list.median().value);
+list.add(new Node(7));
+SingleLinkedList.print(list);
+console.log(list.median().value);
 ```
 
 ## 5. 双向链表的代码实现
 
 
-## 6. 快慢指针代码实现
 
 ## 参考
 
