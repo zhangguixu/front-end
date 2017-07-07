@@ -1,7 +1,6 @@
 # Summary
 
-* [前言](README.md)
-* [1. 前端基础知识](./chapters/chapter-1.md)
+* 1. 前端基础知识
   * 1.1 从浏览器说起
     * [主流浏览器简介](./basis/basis/browser.md)
     * [浏览器内核简介](./basis/basis/core.md)
@@ -57,7 +56,7 @@
     * [WebView基本介绍](./basis/hybrid/webview.md)
     * [JsBridge](./basis/hybrid/jsbridge.md)
     * [WebView常用设置](./basis/hybrid/webview-advanced.md)
-* [2. JavaScript](./chapters/chapter-2.md)
+* 2. JavaScript
   * 2.1 数据类型
     * [基本类型与包装类](./javascript/type/basis.md)
     * [类型转换](./javascript/type/transform.md)
@@ -108,7 +107,7 @@
     * [块级作用域和常量](./javascript/es6/let-const.md)
     * [class](./javascript/es6/class.md)
     * [module](./javascript/es6/module.md)
-* [3. 客户端编程](./chapters/chapter-3.md)
+* 3. 客户端编程
   * 3.1 DOM
     * [概述](./browser/dom/dom-basis.md)
     * [节点类型](./browser/dom/node.md)
@@ -157,7 +156,7 @@
     * [简单的Router]()
   * 3.9 异常处理
   * 3.10 文件操作
-* [4. 工具](./chapters/chapter-4.md)
+* 4. 工具
   * [4.1 emmet](./tools/emmet.md)
   * [4.2 visual studio code](./tools/vscode.md)
   * [4.3 常用git指令](./tools/git.md)
@@ -174,7 +173,7 @@
     * [vim概述与配置](./tools/vim/vim-basis.md)
     * [vim命令与快捷键](./tools/vim/vim-cmd.md)
     * [vim下的emmet](./tools/vim/vim-emmet.md)
-* [5. 前端进阶知识](./chapters/chapter-5.md)
+* 5. 前端进阶知识
   * [5.1 渲染性能优化](./advanced/paint-performance.md)
   * [5.2 模块简易管理](./advanced/module.md)
   * [5.4 雅虎性能优化军规](./advanced/yahoo.md)
@@ -189,7 +188,7 @@
   * 5.4 [webkit](./advanced/webkit/introduction.md)
     * [5.4.1 浏览器和内核常识](./advanced/webkit/browser.md)
     * [5.4.2 HTML解析渲染过程简介](./advanced/webkit/html.md)
-* [6.库与框架](./chapters/chapter-6.md)
+* 6.库与框架
   * [6.1 jQuery](./framework/jquery/introduction.md)
     * [事件API](./framework/jquery/event.md)
     * [常用技巧](./framework/jquery/skill.md)
@@ -210,21 +209,12 @@
     * [QUnit Cookbook](./framework/qunit/cookbook.md)
   * 6.6 jsdeferred
     * [jsdeferred源码解析](./framework/jsdeferred/sourcecode.md)
-* [7. 数据结构与算法基础](./chapters/chapter-7.md)
+* 7. 数据结构与算法基础
   * [7.1 链表](./datastructure/linked-list.md)
   * 7.2 队列与栈
   * 7.3 map
   * 7.4 树
-    * [基本概念]()
-    * [树的遍历]()
-    * [二叉查找树]()
-    * [二叉堆]()
-    * [哈夫曼编码树]()
   * 7.5 图
-    * [基本概念]()
-    * [存储表示]()
-    * [遍历]()
-    * [最小生成树]()
   * 7.6 排序
     * [排序算法概述]()
     * [冒泡排序]()
@@ -232,7 +222,7 @@
     * [快速排序]()
     * [堆排序]()
     * [归并排序]()
-* [8. 面试题](./chapters/chapter-8.md)
+* 8. 面试题
   * [8.1 7个去伪存真的JavaScript面试题](./interview/1.md)
   * [8.2 一道常被人轻视的前端JS面试题](./interview/2.md)
   * [8.3 Front End Developer Questions](./interview/3.md)
