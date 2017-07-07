@@ -80,7 +80,7 @@ class SingleLinkedList {
     // 方便起见，使用一个数组来初始化一个链表
     constructor (arr) {
        for (let i = 0; i < arr.length; i++) {
-          this.add(new Node(arr[i])); 
+          this.append(new Node(arr[i])); 
        } 
     }
     get head () {
@@ -106,16 +106,16 @@ class SingleLinkedList {
         return count;
     }
     // 添加操作，头结点存储值·
-    add (node) {
-        let head = this.head;
+    append (node) {
+        let cur = this.head;
         if (this.isEmpty()) {
             this.head = node;
             return;
         }
-        while(head.next != null) {
-            head = head.next;
+        while(cur.next != null) {
+            cur = cur.next;
         }
-        head.next = node;
+        cur.next = node;
     }
     // 删除
     del (val) {
@@ -147,7 +147,7 @@ class SingleLinkedList {
                 break;
             }
             case (length + 1) : {
-                this.add(node);
+                this.append(node);
                 break;
             }
             default : {
@@ -215,7 +215,7 @@ var list = new SingleLinkedList(arr);
 SingleLinkedList.print(list);
 
 // 添加
-list.add(new Node(5));
+list.append(new Node(5));
 SingleLinkedList.print(list);
 
 // 删除
@@ -238,14 +238,217 @@ SingleLinkedList.print(list);
 list.reverse();
 SingleLinkedList.print(list);
 console.log(list.median().value);
-list.add(new Node(7));
+list.append(new Node(7));
 SingleLinkedList.print(list);
 console.log(list.median().value);
 ```
 
 ## 5. 双向链表的代码实现
 
+首先是节点的定义。
 
+```javascript
+class Node {
+    constructor (val) {
+        this.value = val;
+        this.next = null;
+    }
+    get next () {
+        return this._next;
+    }
+    set next (next ){
+        this._next = next; 
+    }
+    get pre () {
+    	return this._pre;
+    }
+    set pre (pre) {
+    	this._pre = pre;
+    }
+    get value () {
+        return this._value;
+    }
+    set value (value) {
+        this._value = value;
+    }
+}
+```
+
+双向链表的基本操作的实现与单向链表有所不同。
+
+```javascript
+class DoubleLinkedList {
+    // 方便起见，使用一个数组来初始化一个链表
+    constructor (arr) {
+       for (let i = 0; i < arr.length; i++) {
+          this.append(new Node(arr[i])); 
+       } 
+    }
+    get head () {
+        return this._head;
+    }
+    set head (head) {
+        this._head = head;
+    }
+
+    // 定义基础操作，即成员方法
+
+    // 判断是否为空
+    isEmpty () {
+        return (this.head == null);
+    }
+    // 返回节点的个数
+    size () {
+        let count = 0, cur = this.head;
+        while (cur != null) {
+            count += 1;
+            cur = cur.next;
+        }
+        return count;
+    }
+    // 添加操作，头结点存储值·
+    append (node) {
+        let cur = this.head;
+        if (this.isEmpty()) {
+            this.head = node;
+            return;
+        }
+        while(cur.next != null) {
+            cur = cur.next;
+        }
+        cur.next = node;
+        node.pre = cur;
+    }
+    // 删除
+    del (val) {
+        if (this.head.value == val) {
+            this.head = this.head.next;
+            this.head.pre = null;
+            return;
+        }
+        let pre = this.head,
+            cur = pre.next;
+        while (cur != null) {
+            if (cur.value == val) {
+                pre.next = cur.next;
+                cur.next.pre = pre;
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+        }
+    }
+    // 插入
+    insert (node, pos) {
+        // 边界检测
+        let length = this.size(),
+            cur = this.head;
+        if (pos <= 0 || pos > (length + 1)) return;
+        switch (pos) {
+            case 1 : {
+                node.next = cur;
+                cur.pre = node;
+                this.head = node;
+                break;
+            }
+            case (length + 1) : {
+                this.append(node);
+                break;
+            }
+            default : {
+                let pre;
+                while (--pos) {
+                    pre = cur;
+                    cur = cur.next;
+                }
+                pre.next = node;
+                node.pre = pre;
+                node.next = cur;
+                cur.pre = node;
+            }
+        }
+    } 
+
+    // 反转
+    reverse () {
+    	if (this.isEmpty()) return;
+        let cur = this.head,
+            pre = null,
+            next = null;
+		while (cur.next != null) {
+			next = cur.next;
+			cur.next = pre;
+			cur.pre = next;
+			pre = cur;
+			cur = next;
+		}           
+
+        cur.next = cur.pre;
+        cur.pre = null;
+        this.head = cur;
+    }
+
+    // 快慢指针的运用:获取中间节点值
+    median () {
+        if (this.isEmpty()) return;
+        let fast = this.head; // 快指针
+        let slow = this.head; // 慢指针
+        while (fast.next != null) {
+            if (fast.next.next == null) break;
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+   
+    // 不换行输出打印链表
+    static print (list) {
+        let cur = list.head,
+            out = " ";
+        while(cur != null){
+            out += "->" + cur.value;
+            cur = cur.next;                           
+        }
+        console.log(out);
+    }
+}
+```
+
+简单的测试代码
+
+```javascript
+var arr = [1,2,3,4];
+var list = new DoubleLinkedList(arr);
+DoubleLinkedList.print(list);
+
+// 添加
+list.append(new Node(5));
+DoubleLinkedList.print(list);
+
+// 删除
+list.del(1);
+DoubleLinkedList.print(list);
+list.del(4);
+DoubleLinkedList.print(list);
+
+// 插入
+list.insert(new Node(1), 1);
+list.insert(new Node(4), 4);
+list.insert(new Node(6), list.size() + 1);
+DoubleLinkedList.print(list);
+
+// 反转
+list.reverse();
+DoubleLinkedList.print(list);
+
+// 中间值
+list.reverse();
+DoubleLinkedList.print(list);
+console.log(list.median().value);
+list.append(new Node(7));
+DoubleLinkedList.print(list);
+console.log(list.median().value);
+```
 
 ## 参考
 
