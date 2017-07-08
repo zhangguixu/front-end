@@ -185,9 +185,9 @@
     * [5.3.5 Observer(观察者)模式](./advanced/design-pattern/abserver.md)
     * [5.3.6 Publish/Subscribe(发布/订阅)模式](./advanced/design-pattern/pub-sub.md)
     * [常用的设计模式](./advanced/design-pattern/design-pattern.md)
-  * 5.4 [webkit](./advanced/webkit/introduction.md)
-    * [5.4.1 浏览器和内核常识](./advanced/webkit/browser.md)
-    * [5.4.2 HTML解析渲染过程简介](./advanced/webkit/html.md)
+  * 5.4 [webkit](./webkit/introduction.md)
+    * [5.4.1 浏览器和内核常识](./webkit/browser.md)
+    * [5.4.2 HTML解析渲染过程简介](./webkit/html.md)
 ## 6. 库与框架
   * [6.1 jQuery](./framework/jquery/introduction.md)
     * [事件API](./framework/jquery/event.md)
@@ -211,7 +211,7 @@
     * [jsdeferred源码解析](./framework/jsdeferred/sourcecode.md)
 ## 7. 数据结构与算法基础
   * [7.1 链表](./datastructure/linked-list.md)
-  * 7.2 队列与栈
+  * [7.2 队列与栈](./datastructure/queue-stack.md)
   * 7.3 map
   * 7.4 树
   * 7.5 图
