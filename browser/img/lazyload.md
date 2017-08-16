@@ -21,7 +21,7 @@
         var h = 0;
         while(obj){
             h += obj.offsetTop;//距离上一个标签的距离
-            obj += obj.offsetParent;
+            obj = obj.offsetParent;
         }
         return h; //文档坐标
     }
